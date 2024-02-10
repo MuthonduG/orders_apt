@@ -39,6 +39,9 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_10_082014) do
     t.string "avatar"
     t.string "payment_method"
     t.string "offers"
+    t.string "user_id"
+    t.string "email"
+    t.integer "login_attempts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

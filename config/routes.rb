@@ -6,6 +6,7 @@ Rails.application.routes.draw do
 
   post "sign_up", to: "users#sign_up_user"
   post "login", to: "oauth#login"
+  post "create", to: "restaurants#create_new_restaurant"
 
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

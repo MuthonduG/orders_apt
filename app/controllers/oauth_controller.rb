@@ -3,7 +3,7 @@ class OauthController < ApplicationController
 
     def login
         max_attempts = 3
-        @user = User.find_by(school_id: params[:school_id])
+        @user = User.find_by(school_id: params[:school_id]) || Restaurant.find_by(email: params[:email])
         attempts_remaining = max_attempts - (@user&.login_attempts || 0)
       
         if attempts_remaining > 0

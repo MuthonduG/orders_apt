@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
-    skip_before_action :authenticate, only: [:sign_up_user]
-
+    skip_before_action :authenticate
+    
     def index
         @user = User.all 
         render json: @user, status: :ok
@@ -9,6 +9,7 @@ class UsersController < ApplicationController
     def sign_up_user
         @user = User.new(user_params)
         @user.user_id = generate_user_id
+        @user.id = SecureRandom.hex(3)[0, 5]
         @user_all = User.all
       
         if User.exists?(email: @user.email)

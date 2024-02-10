@@ -5,6 +5,9 @@ class CreateRestaurants < ActiveRecord::Migration[7.1]
       t.string :avatar
       t.string :payment_method
       t.string :offers
+      t.string :user_id
+      t.string :email
+      t.integer :login_attempts
 
       t.timestamps
     end
