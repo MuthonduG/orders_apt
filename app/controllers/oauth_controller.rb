@@ -24,7 +24,7 @@ class OauthController < ApplicationController
 
     private
 
-    def generate_token
+    def generate_token(user)
         expiration = Time.now.to_i + 2.hour.to_i
 
         payload = {
