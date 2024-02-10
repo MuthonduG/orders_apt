@@ -7,7 +7,7 @@ class RestaurantsController < ApplicationController
         @restaurant.id = SecureRandom.hex(3)[0, 5]
         @restaurants = Restaurant.all
 
-        if Restaurant.exist?(email: @restaurant.email)
+        if Restaurant.exists?(email: @restaurant.email)
             render json: { error: "User already exists" }
         else
             while @restaurants.any? { |existing_restaurant| existing_restaurant.user_id == @restaurant.user_id }

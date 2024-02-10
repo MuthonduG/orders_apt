@@ -8,6 +8,7 @@ class CreateRestaurants < ActiveRecord::Migration[7.1]
       t.string :user_id
       t.string :email
       t.integer :login_attempts
+      t.string :password_digest
 
       t.timestamps
     end
