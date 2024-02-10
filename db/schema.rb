@@ -17,6 +17,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_001309) do
     t.string "phone_number"
     t.string "password_digest"
     t.string "user_id"
+    t.integer "login_attempts"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
