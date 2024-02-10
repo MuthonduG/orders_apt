@@ -10,7 +10,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_02_09_001309) do
+ActiveRecord::Schema[7.1].define(version: 2024_02_10_082014) do
+  create_table "dishes", force: :cascade do |t|
+    t.string "name"
+    t.string "category"
+    t.string "description"
+    t.string "status"
+    t.integer "restaurant_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["restaurant_id"], name: "index_dishes_on_restaurant_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "restaurant_id", null: false
+    t.integer "dish_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["dish_id"], name: "index_orders_on_dish_id"
+    t.index ["restaurant_id"], name: "index_orders_on_restaurant_id"
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
+  create_table "restaurants", force: :cascade do |t|
+    t.string "business_name"
+    t.string "avatar"
+    t.string "payment_method"
+    t.string "offers"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "school_id"
     t.string "email"
@@ -22,4 +53,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_02_09_001309) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "dishes", "restaurants"
+  add_foreign_key "orders", "dishes"
+  add_foreign_key "orders", "restaurants"
+  add_foreign_key "orders", "users"
 end

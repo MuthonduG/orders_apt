@@ -22,7 +22,6 @@ class OauthController < ApplicationController
         end
     end
       
-
     private
 
     def generate_token(user)

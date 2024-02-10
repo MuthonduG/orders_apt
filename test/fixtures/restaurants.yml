@@ -1,0 +1,13 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  business_name: MyString
+  avatar: MyString
+  payment_method: MyString
+  offers: MyString
+
+two:
+  business_name: MyString
+  avatar: MyString
+  payment_method: MyString
+  offers: MyString

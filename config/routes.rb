@@ -1,4 +1,7 @@
 Rails.application.routes.draw do
+  resources :orders
+  resources :dishes
+  resources :restaurants
   resources :users
 
   post "sign_up", to: "users#sign_up_user"
