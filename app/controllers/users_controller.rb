@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+    skip_before_action :authenticate, only: [:sign_up_user]
 
     def index
         @user = User.all 

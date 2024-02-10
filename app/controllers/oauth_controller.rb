@@ -1,4 +1,5 @@
 class OauthController < ApplicationController
+    skip_before_action :authenticate
 
     def login
         max_attempts = 3
