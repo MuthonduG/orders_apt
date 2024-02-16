@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     def sign_up_user
         @user = User.new(user_params)
         @user.user_id = generate_user_id
-        @user.id = SecureRandom.hex(3)[0, 5]
+        # @user.id = SecureRandom.hex(3)[0, 5]
         @user_all = User.all
       
         if User.exists?(email: @user.email)
